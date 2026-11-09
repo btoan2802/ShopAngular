@@ -1,9 +1,8 @@
 import { Component, signal } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
-import { SanPham } from '../../models/san-pham';
 import { RouterLink } from '@angular/router';
-
+import { SanPham } from '../../models/san-pham';
+import { ProductService } from '../../services/product';
 
 @Component({
   selector: 'app-product-list',
@@ -14,8 +13,8 @@ import { RouterLink } from '@angular/router';
 export class ProductList {
   protected readonly sanPhams = signal<SanPham[]>([]);
 
-  constructor(private http: HttpClient) {
-    this.http.get<SanPham[]>('https://localhost:7241/api/Product')
+  constructor(private productService: ProductService) {
+    this.productService.getAll()
       .subscribe(data => this.sanPhams.set(data));
   }
 }
