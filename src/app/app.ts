@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { DecimalPipe } from '@angular/common';
 
 interface SanPham {
   id: number;
@@ -11,7 +12,7 @@ interface SanPham {
 }
 
 @Component({
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, DecimalPipe],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
