@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { SanPham } from '../../models/san-pham';
+import { Product } from '../../models/product.model';
 import { ProductService } from '../../services/product';
 
 @Component({
@@ -11,10 +11,10 @@ import { ProductService } from '../../services/product';
   styleUrl: './product-list.css',
 })
 export class ProductList {
-  protected readonly sanPhams = signal<SanPham[]>([]);
+  protected readonly products = signal<Product[]>([]);
 
   constructor(private productService: ProductService) {
     this.productService.getAll()
-      .subscribe(data => this.sanPhams.set(data));
+      .subscribe(data => this.products.set(data));
   }
 }

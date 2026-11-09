@@ -1,4 +1,4 @@
-export interface SanPham {
+export interface Product {
     id: number;
     name: string;
     description: string;

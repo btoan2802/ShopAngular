@@ -1,14 +1,14 @@
-<div class="danh-sach">
-    @for (sp of sanPhams(); track sp.id) {
-    <div class="the-sp" [routerLink]="['/product', sp.id]">
-        <h3>{{ sp.name }}</h3>
-        <p class="mo-ta">{{ sp.description }}</p>
-        <p class="gia">{{ sp.price | number }} đ</p>
+<div class="product-grid">
+    @for (product of products(); track product.id) {
+    <div class="product-card" [routerLink]="['/product', product.id]">
+        <h3>{{ product.name }}</h3>
+        <p class="description">{{ product.description }}</p>
+        <p class="price">{{ product.price | number }} đ</p>
 
-        @if (sp.stock > 0) {
-        <p class="con-hang">Còn {{ sp.stock }} sản phẩm</p>
+        @if (product.stock > 0) {
+        <p class="in-stock">Còn {{ product.stock }} sản phẩm</p>
         } @else {
-        <p class="het-hang">Hết hàng</p>
+        <p class="out-of-stock">Hết hàng</p>
         }
     </div>
     }

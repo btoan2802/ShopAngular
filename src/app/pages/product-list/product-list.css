@@ -3,14 +3,14 @@ h1 {
     color: #333;
 }
 
-.danh-sach {
+.product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
     padding: 20px;
 }
 
-.the-sp {
+.product-card {
     background: white;
     border-radius: 12px;
     padding: 16px;
@@ -19,26 +19,26 @@ h1 {
     cursor: pointer;
 }
 
-.the-sp:hover {
+.product-card:hover {
     transform: translateY(-5px);
 }
 
-.mo-ta {
+.description {
     color: #666;
     font-size: 14px;
 }
 
-.gia {
+.price {
     color: #e53935;
     font-size: 20px;
     font-weight: bold;
 }
 
-.con-hang {
+.in-stock {
     color: #2e7d32;
 }
 
-.het-hang {
+.out-of-stock {
     color: #999;
     font-weight: bold;
 }

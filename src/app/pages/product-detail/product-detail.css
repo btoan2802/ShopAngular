@@ -1,11 +1,11 @@
-.quay-lai {
+.back-link {
     display: inline-block;
     margin: 20px;
     color: #1976d2;
     text-decoration: none;
 }
 
-.chi-tiet {
+.detail-card {
     max-width: 600px;
     margin: 0 auto;
     background: white;
@@ -14,26 +14,26 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.mo-ta {
+.description {
     color: #666;
 }
 
-.gia {
+.price {
     color: #e53935;
     font-size: 28px;
     font-weight: bold;
 }
 
-.con-hang {
+.in-stock {
     color: #2e7d32;
 }
 
-.het-hang {
+.out-of-stock {
     color: #999;
     font-weight: bold;
 }
 
-.loi {
+.error {
     text-align: center;
     color: #e53935;
     font-size: 20px;

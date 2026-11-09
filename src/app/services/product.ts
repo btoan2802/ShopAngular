@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { SanPham } from '../models/san-pham';
+import { Product } from '../models/product.model';
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
@@ -9,11 +9,11 @@ export class ProductService {
 
     constructor(private http: HttpClient) { }
 
-    getAll(): Observable<SanPham[]> {
-        return this.http.get<SanPham[]>(this.apiUrl);
+    getAll(): Observable<Product[]> {
+        return this.http.get<Product[]>(this.apiUrl);
     }
 
-    getById(id: string | null): Observable<SanPham> {
-        return this.http.get<SanPham>(`${this.apiUrl}/${id}`);
+    getById(id: string | null): Observable<Product> {
+        return this.http.get<Product>(`${this.apiUrl}/${id}`);
     }
 }
