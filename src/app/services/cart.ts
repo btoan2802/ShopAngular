@@ -58,4 +58,7 @@ export class CartService {
                 .filter(item => item.quantity > 0)
         );
     }
+    clear(): void {
+        this.items.set([]);
+    }
 }

@@ -20,5 +20,9 @@
 
     @if (cartService.items().length > 0) {
     <div class="total">Tổng cộng: {{ cartService.totalPrice() | number }} đ</div>
+    @if (cartService.items().length > 0) {
+    <div class="total">Tổng cộng: {{ cartService.totalPrice() | number }} đ</div>
+    <a routerLink="/checkout" class="checkout-btn">Đặt hàng</a>
+    }
     }
 </div>
