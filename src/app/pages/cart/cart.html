@@ -1,0 +1,19 @@
+<div class="cart-page">
+    <h2>Giỏ hàng</h2>
+
+    @for (item of cartService.items(); track item.product.id) {
+    <div class="cart-row">
+        <span class="name">{{ item.product.name }}</span>
+        <span>{{ item.product.price | number }} đ</span>
+        <span>x {{ item.quantity }}</span>
+        <span class="line-total">{{ item.product.price * item.quantity | number }} đ</span>
+        <button class="remove" (click)="cartService.remove(item.product.id)">Xóa</button>
+    </div>
+    } @empty {
+    <p>Giỏ hàng đang trống. <a routerLink="/">Mua sắm ngay</a></p>
+    }
+
+    @if (cartService.items().length > 0) {
+    <div class="total">Tổng cộng: {{ cartService.totalPrice() | number }} đ</div>
+    }
+</div>

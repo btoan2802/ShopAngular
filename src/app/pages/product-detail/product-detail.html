@@ -11,6 +11,9 @@
     } @else {
     <p class="out-of-stock">Hết hàng</p>
     }
+    <button class="add-to-cart" (click)="addToCart()" [disabled]="product.stock === 0">
+        Thêm vào giỏ
+    </button>
 </div>
 } @else if (errorMessage()) {
 <p class="error">{{ errorMessage() }}</p>

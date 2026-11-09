@@ -1,3 +1,6 @@
-<h1>{{ title() }}</h1>
+<header class="header">
+    <a routerLink="/" class="logo">{{ title() }}</a>
+    <a routerLink="/cart" class="cart-icon">🛒 {{ cartService.totalQuantity() }}</a>
+</header>
 
 <router-outlet />

@@ -3,6 +3,7 @@ import { DecimalPipe } from '@angular/common';
 import { ProductService } from '../../services/product';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Product } from '../../models/product.model';
+import { CartService } from '../../services/cart';
 
 @Component({
   selector: 'app-product-detail',
@@ -14,7 +15,11 @@ export class ProductDetail {
   protected readonly product = signal<Product | null>(null);
   protected readonly errorMessage = signal('');
 
-  constructor(private productService: ProductService, private route: ActivatedRoute) {
+  constructor(
+    private productService: ProductService,
+    private route: ActivatedRoute,
+    private cartService: CartService
+  ) {
     const id = this.route.snapshot.paramMap.get('id');
 
     this.productService.getById(id)
@@ -28,5 +33,11 @@ export class ProductDetail {
           }
         }
       });
+  }
+  addToCart(): void {
+    const p = this.product();
+    if (p) {
+      this.cartService.add(p);
+    }
   }
 }

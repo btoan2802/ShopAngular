@@ -1,0 +1,43 @@
+.cart-page {
+    max-width: 800px;
+    margin: 30px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.name {
+    flex: 1;
+    font-weight: bold;
+}
+
+.line-total {
+    color: #e53935;
+    font-weight: bold;
+}
+
+.remove {
+    background: none;
+    border: 1px solid #e53935;
+    color: #e53935;
+    border-radius: 6px;
+    padding: 4px 12px;
+    cursor: pointer;
+}
+
+.total {
+    text-align: right;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 20px;
+}

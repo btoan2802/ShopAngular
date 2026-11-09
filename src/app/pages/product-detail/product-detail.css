@@ -38,3 +38,19 @@
     color: #e53935;
     font-size: 20px;
 }
+
+.add-to-cart {
+    margin-top: 16px;
+    padding: 12px 24px;
+    background: #e53935;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.add-to-cart:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}

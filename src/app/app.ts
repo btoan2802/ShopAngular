@@ -1,5 +1,7 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLink } from '@angular/router';
+import { CartService } from './services/cart';
+
 
 @Component({
   selector: 'app-root',
@@ -9,4 +11,6 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('Shop của Toàn');
+
+  constructor(protected cartService: CartService) { }
 }
