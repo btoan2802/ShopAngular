@@ -5,7 +5,12 @@
     <div class="cart-row">
         <span class="name">{{ item.product.name }}</span>
         <span>{{ item.product.price | number }} đ</span>
-        <span>x {{ item.quantity }}</span>
+        <div class="quantity">
+            <button (click)="cartService.decrease(item.product.id)">−</button>
+            <span>{{ item.quantity }}</span>
+            <button (click)="cartService.increase(item.product.id)"
+                [disabled]="item.quantity >= item.product.stock">+</button>
+        </div>
         <span class="line-total">{{ item.product.price * item.quantity | number }} đ</span>
         <button class="remove" (click)="cartService.remove(item.product.id)">Xóa</button>
     </div>

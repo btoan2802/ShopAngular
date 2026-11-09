@@ -41,3 +41,23 @@
     font-weight: bold;
     margin-top: 20px;
 }
+
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quantity button {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.quantity button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
