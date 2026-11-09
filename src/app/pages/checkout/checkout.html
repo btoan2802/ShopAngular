@@ -1,1 +1,49 @@
-<p>checkout works!</p>
+<div class="checkout-page">
+    @if (orderId(); as id) {
+    <div class="success">
+        <h2>🎉 Đặt hàng thành công!</h2>
+        <p>Mã đơn hàng của bạn: <strong>#{{ id }}</strong></p>
+        <a routerLink="/">Tiếp tục mua sắm</a>
+    </div>
+    } @else if (cartService.items().length === 0) {
+    <p>Giỏ hàng trống. <a routerLink="/">Mua sắm ngay</a></p>
+    } @else {
+    <h2>Thông tin giao hàng</h2>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <label>
+            Họ tên
+            <input formControlName="customerName" />
+        </label>
+        @if (form.controls.customerName.touched && form.controls.customerName.invalid) {
+        <small class="field-error">Vui lòng nhập họ tên</small>
+        }
+
+        <label>
+            Số điện thoại
+            <input formControlName="phone" />
+        </label>
+        @if (form.controls.phone.touched && form.controls.phone.invalid) {
+        <small class="field-error">Số điện thoại gồm 10 số, bắt đầu bằng 0</small>
+        }
+
+        <label>
+            Địa chỉ
+            <textarea formControlName="address" rows="3"></textarea>
+        </label>
+        @if (form.controls.address.touched && form.controls.address.invalid) {
+        <small class="field-error">Vui lòng nhập địa chỉ</small>
+        }
+
+        <p class="total">Tổng tiền: {{ cartService.totalPrice() | number }} đ</p>
+
+        @if (errorMessage()) {
+        <p class="error">{{ errorMessage() }}</p>
+        }
+
+        <button type="submit" [disabled]="submitting()">
+            {{ submitting() ? 'Đang gửi...' : 'Xác nhận đặt hàng' }}
+        </button>
+    </form>
+    }
+</div>
