@@ -1,0 +1,15 @@
+<div class="danh-sach">
+    @for (sp of sanPhams(); track sp.id) {
+    <div class="the-sp">
+        <h3>{{ sp.name }}</h3>
+        <p class="mo-ta">{{ sp.description }}</p>
+        <p class="gia">{{ sp.price | number }} đ</p>
+
+        @if (sp.stock > 0) {
+        <p class="con-hang">Còn {{ sp.stock }} sản phẩm</p>
+        } @else {
+        <p class="het-hang">Hết hàng</p>
+        }
+    </div>
+    }
+</div>
