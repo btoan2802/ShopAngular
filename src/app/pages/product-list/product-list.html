@@ -1,6 +1,6 @@
 <div class="danh-sach">
     @for (sp of sanPhams(); track sp.id) {
-    <div class="the-sp">
+    <div class="the-sp" [routerLink]="['/product', sp.id]">
         <h3>{{ sp.name }}</h3>
         <p class="mo-ta">{{ sp.description }}</p>
         <p class="gia">{{ sp.price | number }} đ</p>

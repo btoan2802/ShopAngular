@@ -2,10 +2,12 @@ import { Component, signal } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { SanPham } from '../../models/san-pham';
+import { RouterLink } from '@angular/router';
+
 
 @Component({
   selector: 'app-product-list',
-  imports: [DecimalPipe],
+  imports: [DecimalPipe, RouterLink],
   templateUrl: './product-list.html',
   styleUrl: './product-list.css',
 })

@@ -1,1 +1,17 @@
-<p>product-detail works!</p>
+<a routerLink="/" class="quay-lai">← Quay lại danh sách</a>
+
+@if (sanPham(); as sp) {
+<div class="chi-tiet">
+    <h2>{{ sp.name }}</h2>
+    <p class="mo-ta">{{ sp.description }}</p>
+    <p class="gia">{{ sp.price | number }} đ</p>
+
+    @if (sp.stock > 0) {
+    <p class="con-hang">Còn {{ sp.stock }} sản phẩm</p>
+    } @else {
+    <p class="het-hang">Hết hàng</p>
+    }
+</div>
+} @else {
+<p>Đang tải...</p>
+}

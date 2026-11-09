@@ -1,0 +1,34 @@
+.quay-lai {
+    display: inline-block;
+    margin: 20px;
+    color: #1976d2;
+    text-decoration: none;
+}
+
+.chi-tiet {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mo-ta {
+    color: #666;
+}
+
+.gia {
+    color: #e53935;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.con-hang {
+    color: #2e7d32;
+}
+
+.het-hang {
+    color: #999;
+    font-weight: bold;
+}
