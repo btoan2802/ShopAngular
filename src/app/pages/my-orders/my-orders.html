@@ -1,0 +1,36 @@
+<div class="orders-page">
+    <h2>Đơn hàng của tôi</h2>
+
+    @if (loading()) {
+    <p class="state">Đang tải...</p>
+    } @else if (errorMessage()) {
+    <p class="state error">{{ errorMessage() }}</p>
+    } @else {
+    @for (order of orders(); track order.id) {
+    <section class="order-card">
+        <header class="order-head">
+            <strong>Đơn #{{ order.id }}</strong>
+            <span>{{ order.createdAt | date: 'dd/MM/yyyy HH:mm' }}</span>
+        </header>
+
+        <ul class="order-items">
+            @for (item of order.items; track item.productId) {
+            <li>
+                <span>{{ item.productName }} × {{ item.quantity }}</span>
+                <span>{{ item.unitPrice * item.quantity | number }} đ</span>
+            </li>
+            }
+        </ul>
+
+        <footer class="order-foot">
+            <span>Giao đến: {{ order.address }}</span>
+            <strong>Tổng: {{ order.totalPrice | number }} đ</strong>
+        </footer>
+    </section>
+    } @empty {
+    <p class="state">
+        Bạn chưa có đơn hàng nào. <a routerLink="/">Mua sắm ngay</a>
+    </p>
+    }
+    }
+</div>
