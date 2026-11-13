@@ -1,0 +1,33 @@
+<div class="register-card">
+    <h1>Đăng ký</h1>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <label for="username">Tên đăng nhập</label>
+        <input id="username" type="text" formControlName="username" />
+        @if (form.controls.username.touched && form.controls.username.invalid) {
+        <p class="field-error">Tên đăng nhập tối thiểu 3 ký tự</p>
+        }
+
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email" />
+        @if (form.controls.email.touched && form.controls.email.invalid) {
+        <p class="field-error">Email không hợp lệ</p>
+        }
+
+        <label for="password">Mật khẩu</label>
+        <input id="password" type="password" formControlName="password" />
+        @if (form.controls.password.touched && form.controls.password.invalid) {
+        <p class="field-error">Mật khẩu tối thiểu 6 ký tự</p>
+        }
+
+        @if (errorMessage()) {
+        <p class="form-error">{{ errorMessage() }}</p>
+        }
+
+        <button type="submit" [disabled]="submitting()">
+            {{ submitting() ? 'Đang đăng ký...' : 'Đăng ký' }}
+        </button>
+    </form>
+
+    <p class="switch">Đã có tài khoản? <a routerLink="/login">Đăng nhập</a></p>
+</div>

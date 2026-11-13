@@ -43,7 +43,11 @@ export class AuthService {
     }
 
     private loadFromStorage(): LoginResponse | null {
-        const saved = localStorage.getItem(this.storageKey);
-        return saved ? JSON.parse(saved) : null;
+        try {
+            const saved = localStorage.getItem(this.storageKey);
+            return saved ? JSON.parse(saved) : null;
+        } catch {
+            return null;
+        }
     }
 }
