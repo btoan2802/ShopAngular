@@ -1,6 +1,16 @@
 <header class="header">
     <a routerLink="/" class="logo">{{ title() }}</a>
-    <a routerLink="/cart" class="cart-icon">🛒 {{ cartService.totalQuantity() }}</a>
+
+    <nav class="nav">
+        <a routerLink="/cart" class="nav-link">🛒 {{ cartService.totalQuantity() }}</a>
+
+        @if (authService.isLoggedIn()) {
+        <span class="nav-user">Xin chào, {{ authService.currentUser()?.username }}</span>
+        <button type="button" class="logout-btn" (click)="logout()">Đăng xuất</button>
+        } @else {
+        <a routerLink="/login" class="nav-link">Đăng nhập</a>
+        }
+    </nav>
 </header>
 
 <router-outlet />
