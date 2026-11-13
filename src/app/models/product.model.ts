@@ -5,3 +5,10 @@ export interface Product {
     price: number;
     stock: number;
 }
+
+export interface ProductRequest {
+    name: string;
+    description: string;
+    price: number;
+    stock: number;
+}

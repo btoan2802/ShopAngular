@@ -5,6 +5,9 @@
         <a routerLink="/cart" class="nav-link">🛒 {{ cartService.totalQuantity() }}</a>
 
         @if (authService.isLoggedIn()) {
+        @if (authService.isAdmin()) {
+        <a routerLink="/admin/products" class="nav-link">Quản trị</a>
+        }
         <a routerLink="/my-orders" class="nav-link">Đơn hàng</a>
         <span class="nav-user">Xin chào, {{ authService.currentUser()?.username }}</span>
         <button type="button" class="logout-btn" (click)="logout()">Đăng xuất</button>

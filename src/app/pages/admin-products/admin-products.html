@@ -1,0 +1,86 @@
+<div class="admin-page">
+    <h2>Quản lý sản phẩm</h2>
+
+    <form class="product-form" [formGroup]="form" (ngSubmit)="save()">
+        <h3>{{ editingId() === null ? 'Thêm sản phẩm' : 'Sửa sản phẩm #' + editingId() }}</h3>
+
+        <label>
+            Tên sản phẩm
+            <input formControlName="name" />
+        </label>
+        @if (form.controls.name.touched && form.controls.name.invalid) {
+        <p class="field-error">Tên là bắt buộc (tối đa 100 ký tự)</p>
+        }
+
+        <label>
+            Mô tả
+            <textarea rows="3" formControlName="description"></textarea>
+        </label>
+        @if (form.controls.description.touched && form.controls.description.invalid) {
+        <p class="field-error">Mô tả là bắt buộc</p>
+        }
+
+        <div class="row">
+            <label>
+                Giá (đ)
+                <input type="number" formControlName="price" />
+            </label>
+            <label>
+                Tồn kho
+                <input type="number" formControlName="stock" />
+            </label>
+        </div>
+        @if (
+        (form.controls.price.touched && form.controls.price.invalid) ||
+        (form.controls.stock.touched && form.controls.stock.invalid)
+        ) {
+        <p class="field-error">Giá phải từ 1 trở lên, tồn kho không âm</p>
+        }
+
+        @if (errorMessage()) {
+        <p class="field-error">{{ errorMessage() }}</p>
+        }
+        @if (successMessage()) {
+        <p class="success">{{ successMessage() }}</p>
+        }
+
+        <div class="actions">
+            <button type="submit" [disabled]="submitting()">
+                {{ editingId() === null ? 'Thêm' : 'Lưu thay đổi' }}
+            </button>
+            @if (editingId() !== null) {
+            <button type="button" class="secondary" (click)="cancelEdit()">Huỷ</button>
+            }
+        </div>
+    </form>
+
+    <table class="product-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên</th>
+                <th>Giá</th>
+                <th>Tồn kho</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (product of products(); track product.id) {
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.price | number }} đ</td>
+                <td>{{ product.stock }}</td>
+                <td class="row-actions">
+                    <button type="button" class="secondary" (click)="startEdit(product)">Sửa</button>
+                    <button type="button" class="danger" (click)="remove(product)">Xoá</button>
+                </td>
+            </tr>
+            } @empty {
+            <tr>
+                <td colspan="5">Chưa có sản phẩm nào</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
